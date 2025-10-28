@@ -1,0 +1,144 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopSmart - Product Discovery & Wishlist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- REMOVED: <link rel="stylesheet" href="css/styles.css"> -->
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold flex items-center">
+                <i class="fas fa-shopping-cart mr-2"></i>
+                ShopSmart
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-blue-200 transition">Home</a>
+                <a href="wishlist.html" class="hover:text-blue-200 transition">Wishlist</a>
+                <a href="about.html" class="hover:text-blue-200 transition">About</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-blue-500 pb-4 px-4">
+            <a href="index.html" class="block py-2 hover:bg-blue-600 px-2 rounded">Home</a>
+            <a href="wishlist.html" class="block py-2 hover:bg-blue-600 px-2 rounded">Wishlist</a>
+            <a href="about.html" class="block py-2 hover:bg-blue-600 px-2 rounded">About</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-blue-500 text-white py-12">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to ShopSmart</h1>
+                <p class="text-xl mb-6">Discover amazing products and save your favorites in one place.</p>
+                <div class="flex space-x-4">
+                    <a href="#products" class="bg-white text-blue-600 hover:bg-blue-100 px-6 py-3 rounded-lg font-semibold transition">
+                        Browse Now
+                    </a>
+                    <a href="wishlist.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-lg font-semibold transition">
+                        View Wishlist
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="py-8 bg-white shadow">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex-grow">
+                    <div class="relative">
+                        <input type="text" id="search-input" placeholder="Search products..." 
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button id="search-button" class="absolute right-2 top-2 text-gray-500 hover:text-blue-500">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full md:w-48">
+                    <select id="category-filter" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">All Categories</option>
+                        <!-- Categories will be populated from API -->
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">Featured Products</h2>
+            
+            <!-- Loading Spinner -->
+            <div id="loading-spinner" class="flex justify-center items-center py-12 hidden">
+                <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+            </div>
+            
+            <!-- Error Message -->
+            <div id="error-message" class="hidden text-center py-12">
+                <i class="fas fa-exclamation-circle text-red-500 text-4xl mb-4"></i>
+                <p class="text-xl text-gray-700">Oops! Something went wrong. Please try again later.</p>
+            </div>
+            
+            <!-- No Results Message -->
+            <div id="no-results" class="hidden text-center py-12">
+                <i class="fas fa-search text-gray-400 text-4xl mb-4"></i>
+                <p class="text-xl text-gray-700">No products found. Try a different search.</p>
+            </div>
+            
+            <!-- Product Grid -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Products will be populated dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4">ShopSmart</h3>
+                    <p class="text-gray-400">Your one-stop shop for product discovery.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3">Navigation</h4>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                            <li><a href="wishlist.html" class="text-gray-400 hover:text-white transition">Wishlist</a></li>
+                            <li><a href="about.html" class="text-gray-400 hover:text-white transition">About</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3">Connect</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 ShopSmart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
