@@ -35,18 +35,15 @@
         </div>
     </nav>
 
-    <!-- Wishlist Header -->
     <section class="bg-gray-500 py-8 shadow-sm">
         <div class="container mx-auto px-4">
             <h1 class="text-3xl font-bold mb-2">My Wishlist</h1>
             <p class="text-gray-600">Manage your favorite products here.</p>
         </div>
     </section>
-
-    <!-- Wishlist Content -->
     <section class="py-8">
         <div class="container mx-auto px-4">
-            <!-- Empty Wishlist Message -->
+
             <div id="empty-wishlist" class="hidden text-center py-12">
                 <i class="far fa-heart text-gray-400 text-5xl mb-4"></i>
                 <h2 class="text-2xl font-semibold text-gray-700 mb-2">Your wishlist is empty</h2>
@@ -55,8 +52,6 @@
                     Browse Products
                 </a>
             </div>
-            
-            <!-- Wishlist Actions -->
             <div id="wishlist-actions" class="mb-6 flex justify-between items-center">
                 <p id="wishlist-count" class="text-gray-600">0 items in your wishlist</p>
                 <button id="clear-wishlist" class="text-red-600 hover:text-red-800 transition">
@@ -64,9 +59,8 @@
                 </button>
             </div>
             
-            <!-- Wishlist Grid -->
             <div id="wishlist-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Wishlist items will be populated dynamically -->
+            
             </div>
         </div>
     </section>
